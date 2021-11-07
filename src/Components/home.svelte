@@ -158,7 +158,7 @@
 
 <style>
     #home-wrapper {
-        background-image: url("assets/images/background.svg");
+        background-image: url("/assets/images/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
