@@ -1,11 +1,6 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
-    export let nav = null;
-    let visible = false;
-
-    setTimeout(() => {
-        visible = true;
-    }, 500);
+    export let visible = false;
 
     interface Education {
         title: string;
@@ -28,11 +23,12 @@
     ];
 </script>
 
-<div id="about-wrapper">
+<div id="about-wrapper"
+>
     <div
-        class="h-screen flex flex-col mb-8 md:mb-0 md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 bg-white overflow-x-hidden"
+        class="min-h-screen flex flex-col mb-8 md:mb-0 md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 bg-white overflow-x-hidden"
     >
-        <svelte:component this={nav}/>
+    
         <div class="flex flex-col md:flex-row w-full m-auto">
             {#if visible}
                 <div class="w-3/4 md:w-3/5 2xl:w-2/5 mx-auto md:mx-0">
@@ -128,7 +124,7 @@
                     </div>
                 </div>
                 <div
-                    class="m-auto ml-8"
+                    class="m-auto md:ml-8"
                     transition:fly={{
                         x: 1000,
                         duration: 2000,
@@ -170,10 +166,11 @@
 
 <style>
     #about-wrapper {
-        background-image: url("assets/images/background.svg");
+        background-image: linear-gradient(gray,black),url("/assets/images/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
+        background-blend-mode: saturation;
     }
 
     #gmail-icon:hover > path {

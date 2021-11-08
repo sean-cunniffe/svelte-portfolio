@@ -2,7 +2,7 @@
     import { onDestroy, onMount } from "svelte/internal";
     import { fly } from "svelte/transition";
     import Message from "./message.svelte";
-    export let nav = null;
+    import Navigation  from "./navigation.svelte"
     let visible = false;
     const fadeInDelay = 500;
 
@@ -97,7 +97,7 @@
 <div id="home-wrapper">
     <div
         id="parent"
-        class="h-screen flex flex-col md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 relative overflow-hidden"
+        class="min-h-screen w-screen flex flex-col md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 relative overflow-hidden"
     >
         <div class="flex flex-row w-full">
             <embed
@@ -124,7 +124,7 @@
                 >
                     Hi, I'm Sean Cunniffe. <br />Welcome to my Web Portfolio
                 </h3>
-                <svelte:component this={nav}/>
+                <Navigation></Navigation>
                 <a target="_blank"
                 href="https://drive.google.com/uc?export=view&id=1Zx4OJHz992_D9ldnsdQBeBRdWUZmX5JV"
                 class="text-center"
@@ -158,7 +158,7 @@
 
 <style>
     #home-wrapper {
-        background-image: url("../assets/images/background.svg");
+        background-image: url("/assets/images/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;

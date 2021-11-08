@@ -1,47 +1,54 @@
 <script lang="ts">
-	import {
-		component,
-		changeComponent,
-		currentComponent,
-		components,
-	} from "./Services/Stores";
-	import nav from "./Components/navigation.svelte";
-	let viewportComponent = null;
+	import Home from "./Components/home.svelte";
+	import About from "./Components/About.svelte";
+	import Projects from "./Components/projects.svelte";
+	import ComponentTitle from "./Components/componentTitle.svelte";
 
-	component.subscribe((value) => {
-		viewportComponent = value;
-	});
+	let aboutAnimation = false;
+	let projectAnimation = false;
+	window.addEventListener("scroll", () => {
+		playAnimations();
+	}, );
 
-	changeComponent("Home");
+	// check if compoennt is in view, if so set visible to true and animation will start
+	// once true, keep true so animations dont keep repeating
+	function playAnimations() {
+		aboutAnimation = aboutAnimation
+			? true
+			: elementInViewport("#about-wrapper");
+		projectAnimation = projectAnimation
+			? true
+			: elementInViewport("#projects-wrapper");
+	}
 
-	// window.addEventListener(
-	// 	"wheel",
-	// 	() => {
-	// 		if (
-	// 			document.body.offsetHeight ==
-	// 			window.pageYOffset + window.innerHeight
-	// 		) {
-	// 			let values = Array.from(components.keys());
+	function elementInViewport(elId: string): boolean {
+		let el: any = document.querySelector(elId);
+		let top = el.offsetTop;
+		let left = el.offsetLeft;
+		let width = el.offsetWidth;
+		let height = el.offsetHeight;
 
-	// 			for (let i = 0; i < components.size; i++) {
-	// 				let tempC = values[i];
-	// 				console.log(tempC);
+		while (el.offsetParent) {
+			el = el.offsetParent;
+			top += el.offsetTop;
+			left += el.offsetLeft;
+		}
 
-	// 				if (tempC === currentComponent) {
-	// 					console.log(tempC + " === " + currentComponent);
-	// 					i++;
-	// 					i = i == values.length ? 0 : i;
-	// 					changeComponent(values[i]);
-	// 				}
-	// 			}
-	// 		}
-	// 	},
-	// 	true
-	// );
+		return (
+			top < window.pageYOffset + window.innerHeight &&
+			left < window.pageXOffset + window.innerWidth &&
+			top + height > window.pageYOffset &&
+			left + width > window.pageXOffset
+		);
+	}
 </script>
 
-<div id="parent" class=" h-screen">
-	<svelte:component this={viewportComponent} {nav} />
+<div id="parent">
+	<Home/>
+	<ComponentTitle title={"About"}></ComponentTitle>
+	<About visible={aboutAnimation} />
+	<ComponentTitle title={"Projects"}></ComponentTitle>
+	<Projects visible={projectAnimation} />
 </div>
 
 <style global lang="postcss">
@@ -53,15 +60,22 @@
 		padding: 0;
 		height: auto;
 	}
+	body::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+
+	body::-webkit-scrollbar-track {
+		background: #4d4d4d;
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background: white;
+	}
+
 	#parent {
-		scrollbar-width: 0;
+		scroll-snap-type: block mandatory;
 	}
-	::-webkit-scrollbar {
-		width: 0; /* Remove scrollbar space */
-		background: transparent; /* Optional: just make scrollbar invisible */
-	}
-	/* Optional: show position indicator in red */
-	::-webkit-scrollbar-thumb {
-		background: #ff0000;
+	#parent > * {
+		scroll-snap-align: start;
 	}
 </style>

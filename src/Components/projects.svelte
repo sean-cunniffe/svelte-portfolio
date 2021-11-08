@@ -1,14 +1,14 @@
 <script lang="ts">
     import ProjectCard from "./project_card.svelte";
-    export let nav = null;
+    export let visible = false;
     let delay = 0;
 </script>
 
 <div id="projects-wrapper">
     <div
-        class="h-screen flex flex-col md:w-screen xl:w-3/4 m-auto pb-20 sm:p-7 overflow-x-hidden bg-white"
+        class="flex flex-col md:w-screen xl:w-3/4 m-auto pb-20 sm:p-7 overflow-x-hidden bg-white"
     >
-        <svelte:component this={nav} />
+    
         <ProjectCard
             title={"Exercise Tracker API"}
             description={"A Rest API for users to track their exercise progress. The user can " +
@@ -19,6 +19,7 @@
             skills={"Java, Spring Boot/Security/Data"}
             imageURL={"assets/images/fitness-tracker-smaller.jpg"}
             delay={(delay += 300)}
+            visible = {visible}
         />
         <ProjectCard
             title={"Visual Searching Algorithms"}
@@ -29,6 +30,7 @@
             imageURL={"assets/images/search-smaller.jpg"}
             link={"https://sean-cunniffe.github.io/Tree-Search"}
             delay={(delay += 300)}
+            visible = {visible}
         />
 
         <ProjectCard
@@ -38,6 +40,7 @@
             skills={"TypeScript, Sorting algorithms"}
             link={"https://sean-cunniffe.github.io/visual-sorting-algorithms/"}
             delay={(delay += 300)}
+            visible = {visible}
         />
 
         <ProjectCard
@@ -47,6 +50,7 @@
             skills={"Java, JSF, HTML, CSS, Mockito, CircleCi, Bitbucket, Jira"}
             imageURL={"assets/images/greenway.jpg"}
             delay={(delay += 300)}
+            visible = {visible}
         />
         <ProjectCard
             title={"Cart.py"}
@@ -55,15 +59,20 @@
             skills={"Python, TDD"}
             imageURL={"assets/images/decision-tree.png"}
             delay={(delay += 300)}
+            visible = {visible}
         />
+        
     </div>
 </div>
 
 <style>
     #projects-wrapper {
-        background-image: url("assets/images/background.svg");
+        width: 100%;
+        min-height: 100vh;
+        background-image: linear-gradient(gray, white),url("/assets/images/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
+        background-blend-mode: saturation;
     }
 </style>
