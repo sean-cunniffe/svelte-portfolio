@@ -6,8 +6,12 @@
         title: string;
         dateFinished: string;
     }
+    interface WorkExperience{
+        place: string;
+        dateFinished: string
+    }
 
-    let eds: Education[] = [
+    const eds: Education[] = [
         {
             title: "Applied Software Engineering (Msc) in TUS",
             dateFinished: "Current",
@@ -21,9 +25,20 @@
             dateFinished: "2019",
         },
     ];
+
+    const workExp: WorkExperience[] = [
+        {
+            place: "Boston Scientific as Co-op",
+            dateFinished: "Aug/2018 (8 months)"
+        },
+        {
+            place: "Retail Solutions as Software Technician",
+            dateFinished: "May/2021 (4 months)"
+        }
+    ]
 </script>
 
-<div id="about-wrapper"
+<div id="about-wrapper" class="select-none"
 >
     <div
         class="min-h-screen flex flex-col mb-8 md:mb-0 md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 bg-white overflow-x-hidden"
@@ -45,7 +60,7 @@
                         class="mx-auto w-max mt-4 flex flex-row"
                         transition:fly={{
                             x: -1000,
-                            duration: 2000,
+                            duration: 2000
                         }}
                     >
                         <a
@@ -124,7 +139,7 @@
                     </div>
                 </div>
                 <div
-                    class="m-auto md:ml-8"
+                    class="m-auto md:mx-4"
                     transition:fly={{
                         x: 1000,
                         duration: 2000,
@@ -144,7 +159,10 @@
                         using efficient and (when possible) simple solutions, and
                         keeping up-to date with current technologies being developed.
                     </p>
-                    <div class="grid grid-cols-2">
+                    <div class="grid grid-cols-2" transition:fly={{
+                        x: 1000,
+                        duration: 2000,
+                    }}>
                         <h2 class="font-bold mt-4">Education</h2>
                         <h2 class="font-bold mt-4 text-center">
                             Date finished
@@ -158,6 +176,25 @@
                             </p>
                         {/each}
                     </div>
+                    <div class="grid grid-cols-2" transition:fly={{
+                        x: 1000,
+                        duration: 2000,
+                        delay:500
+                    }}>
+                        <h2 class="font-bold mt-4">Work Experience</h2>
+                        <h2 class="font-bold mt-4 text-center">
+                            Date finished
+                        </h2>
+                        {#each workExp as work}
+                            <p class="my-2">
+                                {work.place}
+                            </p>
+                            <p class="my-2 text-center">
+                                {work.dateFinished}
+                            </p>
+                        {/each}
+                    </div>
+                   
                 </div>
             {/if}
         </div>
@@ -165,6 +202,11 @@
 </div>
 
 <style>
+
+    .grid-auto-w{
+        grid-template-columns: auto 1fr 1fr;
+    }
+
     #about-wrapper {
         background-image: linear-gradient(gray,black),url("/assets/images/background.svg");
         background-attachment: fixed;

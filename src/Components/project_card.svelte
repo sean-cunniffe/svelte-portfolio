@@ -18,7 +18,7 @@
             duration: 1000,
             delay: delay,
         }}
-        class="w-5/6 border-2 shadow-xl flex flex-col md:flex-row m-3.5 ml-auto mr-auto p-3 pl-6 pr-6 rounded-2xl"
+        class="w-5/6 border-2 shadow-xl flex flex-col md:flex-row m-3.5 ml-auto mr-auto p-3 pl-6 pr-6 rounded-2xl select-none"
     >
         <img class="mx-auto md:w-1/3 mb-auto mt-2 md:mr-3 md:ml-0 rounded-2xl" src={imageURL} alt="" />
         <div class="md:ml-3">

@@ -46,7 +46,7 @@
         <ProjectCard
             title={"Greenway Bicycles"}
             description={"A bicycle companys website where customers can rent bicycles online and staff can manage inventory, customers, bookings, and other staff." +
-                "This project was completed using TDD and done with an agile scrum team."}
+                " This project was completed using TDD and with a agile scrum team."}
             skills={"Java, JSF, HTML, CSS, Mockito, CircleCi, Bitbucket, Jira"}
             imageURL={"assets/images/greenway.jpg"}
             delay={(delay += 300)}
