@@ -43,6 +43,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Sean Cunniffe's Portfolio</title>
+	<meta name="description" content="Hi, My name is Sean Cunniffe, I'm a university graduate with a Bachelor’s in Electronic and Computer Engineering, and a Certificate in Software Engineering, self-motivated with leadership and teamwork abilities and a drive to always improve and increase my skill set in Software Engineering and Web Development."/>
+</svelte:head>
+
 <div id="parent">
 	<Home/>
 	<ComponentTitle title={"About"}></ComponentTitle>
