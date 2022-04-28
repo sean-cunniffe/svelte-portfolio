@@ -13,5 +13,7 @@ ghpages.publish(
 	},
 	() => {
 		console.log('Deploy Complete!');
+	},(err)=>{
+		console.log(err)
 	}
 );

@@ -1,9 +1,9 @@
 <script lang="ts">
-import type { BehaviorSubject } from "rxjs";
+import type { Subject } from "rxjs";
 
     import { fly } from "svelte/transition";
     export let visible = false;
-    export let data: BehaviorSubject<any>;
+    export let data: Subject<any>;
     let education: Education[] = [];
     let workExperience: WorkExperience[] = []
     let bio: String[] = []

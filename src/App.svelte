@@ -6,7 +6,7 @@
 	// Import the functions you need from the SDKs you need
 	import { initializeApp } from "firebase/app";
 	import { getDatabase, ref, child, get } from "firebase/database";
-	import { BehaviorSubject, Subject } from "rxjs";
+	import { Subject } from "rxjs";
 	const firebaseConfig = {
 		apiKey: "AIzaSyAvRHZJehOoiB8CYaFHarHD7BIWAmDuti4",
 		authDomain: "web-portfolio-b463f.firebaseapp.com",

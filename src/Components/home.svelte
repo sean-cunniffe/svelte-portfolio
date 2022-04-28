@@ -1,16 +1,18 @@
 <script lang="ts">
-import type { BehaviorSubject } from "rxjs";
+import type { Subject } from "rxjs";
 
     import { onDestroy, onMount } from "svelte/internal";
     import { fly } from "svelte/transition";
     import Navigation from "./navigation.svelte";
     let visible = false;
     const fadeInDelay = 500;
-    export let data: BehaviorSubject<any>;
-    let greeting :String[]= []
+    export let data: Subject<any>;
+    let greeting : string[]= []
+    let cvLink : string = "";
 
     data.subscribe(value=>{
         greeting = value.greeting;
+        cvLink = value.profile.cv;
     });
     let messageMoveIntervalTime = 4;
 
@@ -136,7 +138,7 @@ import type { BehaviorSubject } from "rxjs";
                 <Navigation />
                 <a
                     target="_blank"
-                    href="https://drive.google.com/uc?export=view&id=1Zx4OJHz992_D9ldnsdQBeBRdWUZmX5JV"
+                    href="{cvLink}"
                     class="text-center"
                 >
                     <h3

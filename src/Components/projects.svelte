@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { BehaviorSubject } from "rxjs";
+    import type { Subject } from "rxjs";
 
     import ProjectCard from "./project_card.svelte";
     export let visible = false;
     let delay = 0;
-    export let data: BehaviorSubject<any>;
+    export let data: Subject<any>;
     interface Project {
         description: String;
         image: String;
