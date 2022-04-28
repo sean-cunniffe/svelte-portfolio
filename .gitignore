@@ -1,3 +1,6 @@
 /node_modules/
 /.vscode/
 TO-DO.txt
+data.json
+gh-pages.js
+package-lock.json

@@ -1,41 +1,36 @@
 <script lang="ts">
+import type { BehaviorSubject } from "rxjs";
+
     import { fly } from "svelte/transition";
     export let visible = false;
-
+    export let data: BehaviorSubject<any>;
+    let education: Education[] = [];
+    let workExperience: WorkExperience[] = []
+    let bio: String[] = []
+    let profilePic = ""
+    let linkedin = ""
+    let email = ""
+    let github = ""
+    data.subscribe(value=>{
+        education = value.profile.education
+        workExperience = value.profile.workExperience
+        bio = value.profile.bio;
+        profilePic = value.profile.profilePic
+        linkedin = value.profile.linkedin
+        github = value.profile.github
+        email = value.profile.email
+        let pp = (<HTMLImageElement>document.getElementById("profilePic"));
+        if(pp)
+            pp.src = value.profile.profilePic;
+    });
     interface Education {
-        title: string;
+        title: string;  
         dateFinished: string;
     }
     interface WorkExperience{
         place: string;
         dateFinished: string
     }
-
-    const eds: Education[] = [
-        {
-            title: "Applied Software Engineering (Msc) in TUS",
-            dateFinished: "Current",
-        },
-        {
-            title: "Certificate in Software Engineering in TUS",
-            dateFinished: "2021",
-        },
-        {
-            title: "Electronic and Computer Engineering (BEng) in NUI Galway",
-            dateFinished: "2019",
-        },
-    ];
-
-    const workExp: WorkExperience[] = [
-        {
-            place: "Boston Scientific as Co-op",
-            dateFinished: "Aug/2018 (8 months)"
-        },
-        {
-            place: "Retail Solutions as Software Technician",
-            dateFinished: "May/2021 (4 months)"
-        }
-    ]
 </script>
 
 <div id="about-wrapper" class="select-none"
@@ -47,12 +42,12 @@
         <div class="flex flex-col md:flex-row w-full m-auto">
             {#if visible}
                 <div class="w-3/4 md:w-3/5 2xl:w-2/5 mx-auto md:mx-0">
-                    <img
+                    <img id="profilePic"
                         transition:fly={{
                             x: -1000,
                             duration: 2000,
                         }}
-                        src="assets/images/profile-pic-1-smaller.jpg"
+                        src="{profilePic}"
                         class="w-full m-auto md:m-0 bg-cover border-gray-300 border-4"
                         alt=""
                     />
@@ -64,7 +59,7 @@
                         }}
                     >
                         <a
-                            href="https://www.linkedin.com/in/sean-cunniffe-60a6931b8/"
+                            href="{linkedin}"
                             target="_blank"
                         >
                             <svg
@@ -85,7 +80,7 @@
                         </a>
                         <a
                             class="my-auto block ml-8"
-                            href="mailto: sean.cunniffe927@gmail.com"
+                            href="mailto: {email}"
                             target="_blank"
                         >
                             <svg
@@ -118,7 +113,7 @@
                         </a>
                         <a
                             class="my-auto block ml-8"
-                            href="https://github.com/sean-cunniffe"
+                            href="{github}"
                             target="_blank"
                         >
                             <svg
@@ -152,12 +147,10 @@
                     </h1>
                     <br />
                     <p class="text-center md:text-left">
-                        I'm currently studying a Masters in Applied Software
-                        Engineering in TUS (technological university of the
-                        shannon midlands midwest). <br />
-                        I'm passionate about programming and solving complex problems
-                        using efficient and (when possible) simple solutions, and
-                        keeping up-to date with current technologies being developed.
+                        {#each bio as paragraph }
+                            {paragraph}
+                            <br/>
+                        {/each}
                     </p>
                     <div class="grid grid-cols-2" transition:fly={{
                         x: 1000,
@@ -167,7 +160,7 @@
                         <h2 class="font-bold mt-4 text-center">
                             Date finished
                         </h2>
-                        {#each eds as ed}
+                        {#each education as ed}
                             <p class="my-2">
                                 {ed.title}
                             </p>
@@ -185,7 +178,7 @@
                         <h2 class="font-bold mt-4 text-center">
                             Date finished
                         </h2>
-                        {#each workExp as work}
+                        {#each workExperience as work}
                             <p class="my-2">
                                 {work.place}
                             </p>

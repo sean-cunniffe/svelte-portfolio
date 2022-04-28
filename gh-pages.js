@@ -6,7 +6,7 @@ ghpages.publish(
 		branch: 'gh-pages',
 		repo: 'https://github.com/sean-cunniffe/svelte-portfolio', // Update to point to your repository
 		user: {
-			name: 'sean.cunniffe', // update to use your name
+			name: 'sean-cunniffe', // update to use your name
 			email: 'sean.cunniffe927@gmail.com' // Update to use your email
 		},
 		dotfiles: true

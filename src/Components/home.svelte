@@ -1,11 +1,17 @@
 <script lang="ts">
+import type { BehaviorSubject } from "rxjs";
+
     import { onDestroy, onMount } from "svelte/internal";
     import { fly } from "svelte/transition";
-    import Message from "./message.svelte";
     import Navigation from "./navigation.svelte";
     let visible = false;
     const fadeInDelay = 500;
+    export let data: BehaviorSubject<any>;
+    let greeting :String[]= []
 
+    data.subscribe(value=>{
+        greeting = value.greeting;
+    });
     let messageMoveIntervalTime = 4;
 
     onDestroy(() => {
@@ -13,7 +19,7 @@
         message.style.visibility = "hidden";
     });
 
-    onMount(async () => {
+    onMount(async () => {        
         let message = <HTMLElement>document.querySelector("#message");
         message.style.visibility = "hidden";
         setTimeout(() => {
@@ -99,7 +105,7 @@
         id="parent"
         class="min-h-screen w-screen flex flex-col md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 relative overflow-hidden"
     >
-        <div class="flex flex-row w-full">
+        <div class="p-10 flex flex-row w-full">
             <embed
                 id="computer"
                 class="mr-auto w-1/6 lg:w-1/12 h-full"
@@ -117,12 +123,15 @@
         </div>
         <div class="mb-auto mt-auto">
             {#if visible}
-                <!-- <img transition:fade src ="assets/images/profile-pic.jpg" class="h-40 lg:h-80 2xl:h-96 rounded-xl ml-auto mr-auto mb-2" alt=""> -->
                 <h3
                     transition:fly={{ y: -200, duration: 2000 }}
                     class="self-center text-2xl md:text-5xl text-center"
                 >
-                    Hi, I'm Sean Cunniffe. <br />Welcome to my Web Portfolio
+                {#each greeting as greeting}
+                    {greeting}
+                    <br>
+                {/each}
+                    <!-- Hi, I'm Sean Cunniffe. <br />Welcome to my Web Portfolio -->
                 </h3>
                 <Navigation />
                 <a
@@ -142,7 +151,7 @@
             {/if}
         </div>
         <!-- Router and switch in div-->
-        <div class="flex flex-row w-full">
+        <div class="p-10 flex flex-row w-full">
             <img
                 id="router"
                 src="assets/images/router.svg"
