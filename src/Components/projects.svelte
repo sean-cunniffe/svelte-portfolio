@@ -11,6 +11,7 @@
         title: String;
         toolsAndSkills: String;
         link: String;
+        repoLink: string | null | undefined;
     }
     let projects: Project[] = [];
 
@@ -33,6 +34,7 @@
                 imageURL={project.image}
                 link={project.link}
                 delay={(delay += 300)}
+                repoLink={project.repoLink}
                 {visible}
             />
         {/each}

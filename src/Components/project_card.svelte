@@ -1,6 +1,6 @@
 <script lang="ts">
-
     import { fly } from "svelte/transition";
+    import GithubButton from "./githubButton.svelte"
     export let title = null;
     export let description = null;
     export let skills = null;
@@ -8,7 +8,7 @@
     export let delay = 0;
     export let link = null;
     export let visible = false;
-
+    export let repoLink = null;
 </script>
 
 {#if visible}
@@ -20,20 +20,37 @@
         }}
         class="w-5/6 border-2 shadow-xl flex flex-col md:flex-row m-3.5 ml-auto mr-auto p-3 pl-6 pr-6 rounded-2xl select-none"
     >
-        <img class="mx-auto md:w-1/3 mb-auto mt-2 md:mr-3 md:ml-0 rounded-2xl" src={imageURL} alt="" />
+        <img
+            class="mx-auto md:w-1/3 mb-auto mt-2 md:mr-3 md:ml-0 rounded-2xl"
+            src={imageURL}
+            alt=""
+        />
         <div class="md:ml-3">
-            <h3 class="font-semibold text-2xl mb-2 text-center md:text-left">{title}</h3>
-            <div class="flex flex-row mt-2 mx-auto md:mx-0">
-                <h2 class=" font-semibold mr-2">Tools/Skills:</h2>
-                <p>{skills}</p>
+            <h3 class="font-semibold text-2xl mb-2 text-center md:text-left">
+                {title}
+            </h3>
+            <div class="flex flex-col md:flex-row mt-2 mx-auto md:mx-0">
+                <h2 class=" font-semibold mr-2 text-center md:text-left">Tools/Skills:</h2>
+                <p class="text-center md:text-left">{skills}</p>
             </div>
-            {#if link}
-            <a href={link} target="_blank">
-                <button class="bg-white transition-colors hover:bg-gray-900 hover:text-white text-gray-900 py-1 px-2 rounded my-2 mx-auto md:mx-0 block">Live Demo</button>
-            </a>
-            {:else}
-                <br>
-            {/if}
+            <div class="flex flex-row justify-center md:justify-start">
+                {#if link}
+                    <a href={link} target="_blank">
+                        <button
+                            class="bg-white transition-colors hover:bg-gray-900 hover:text-white text-gray-900 py-1 px-2 rounded my-2 mx-auto md:mx-0 block"
+                            >Live Demo</button
+                        >
+                    </a>
+                {/if}
+                {#if repoLink}
+                    <a href={repoLink} target="_blank">
+                        <GithubButton classes="h-8 my-2 ml-3"/>
+                    </a>
+                {/if}
+                {#if !link && !repoLink}
+                    <br />
+                {/if}
+            </div>
             <p class="text-center md:text-left">
                 {description}
             </p>

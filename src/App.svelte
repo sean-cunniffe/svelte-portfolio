@@ -27,18 +27,30 @@
 
 	let firebaseData = new Subject();
 
-	const dbRef = ref(database);
-	get(child(dbRef, `/`))
-		.then((snapshot) => {
-			if (snapshot.exists()) {
-				firebaseData.next(snapshot.val());
-			} else {
-				console.log("No data available");
-			}
-		})
-		.catch((error) => {
-			console.error(error);
-		});
+	function getFirebaseData() {
+		const dbRef = ref(database);
+		get(child(dbRef, `/`))
+			.then((snapshot) => {
+				if (snapshot.exists()) {
+					firebaseData.next(snapshot.val());
+				} else {
+					console.log("No data available");
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}
+
+	// getFirebaseData()
+
+	function getDemoData() {
+		fetch("/data.json")
+			.then((response) => response.json())
+			.then((json) => firebaseData.next(json));
+	}
+
+	getDemoData();
 
 	let aboutAnimation = false;
 	let projectAnimation = false;
@@ -82,9 +94,9 @@
 
 <div id="parent">
 	<Home data={firebaseData} />
-	<ComponentTitle title={"About"} />
+	<ComponentTitle title={"About 🕺"}/>
 	<About data={firebaseData} visible={aboutAnimation} />
-	<ComponentTitle title={"Projects"} />
+	<ComponentTitle title={"Projects 🤓"} />
 	<Projects data={firebaseData} visible={projectAnimation} />
 </div>
 
