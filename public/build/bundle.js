@@ -18076,7 +18076,7 @@ var app = (function () {
     			t3 = space();
     			create_component(projects.$$.fragment);
     			attr_dev(div, "id", "parent");
-    			add_location(div, file, 79, 0, 2869);
+    			add_location(div, file, 78, 0, 2851);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18194,12 +18194,12 @@ var app = (function () {
     		});
     	}
 
-    	// getFirebaseData()
+    	getFirebaseData();
+
     	function getDemoData() {
     		fetch("/data.json").then(response => response.json()).then(json => firebaseData.next(json));
     	}
 
-    	getDemoData();
     	let aboutAnimation = false;
     	let projectAnimation = false;
 
