@@ -42,15 +42,13 @@
 			});
 	}
 
-	// getFirebaseData()
+	getFirebaseData()
 
 	function getDemoData() {
 		fetch("/data.json")
 			.then((response) => response.json())
 			.then((json) => firebaseData.next(json));
 	}
-
-	getDemoData();
 
 	let aboutAnimation = false;
 	let projectAnimation = false;
