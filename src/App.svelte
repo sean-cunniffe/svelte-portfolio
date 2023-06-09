@@ -29,7 +29,7 @@
 
 	function getFirebaseData() {
 		const dbRef = ref(database);
-		get(child(dbRef, `/`))
+		get(child(dbRef, `/public`))
 			.then((snapshot) => {
 				if (snapshot.exists()) {
 					firebaseData.next(snapshot.val());
