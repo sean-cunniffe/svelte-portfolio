@@ -1,25 +1,20 @@
 <script lang="ts">
-    import type { Subject } from "rxjs";
+    import type { PageServerData } from "./$types";
+
 
     import ProjectCard from "./project_card.svelte";
     export let visible = false;
+    export let data: PageServerData;
     let delay = 0;
-    export let data: Subject<any>;
     interface Project {
-        description: String;
-        image: String;
-        title: String;
-        toolsAndSkills: String;
-        link: String;
+        description: string;
+        image: string;
+        title: string;
+        toolsAndSkills: string;
+        link: string;
         repoLink: string | null | undefined;
     }
-    let projects: Project[] = [];
-
-    data.subscribe((value) => {
-        console.log(value.project);
-        
-        projects = value.project;
-    });
+    let projects: Project[] = data.project
 </script>
 
 <div id="projects-wrapper">
@@ -46,7 +41,7 @@
         width: 100%;
         min-height: 100vh;
         background-image: linear-gradient(gray, white),
-            url("/assets/images/background.svg");
+            url("/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;

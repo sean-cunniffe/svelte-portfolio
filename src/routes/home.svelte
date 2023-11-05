@@ -1,19 +1,15 @@
 <script lang="ts">
-import type { Subject } from "rxjs";
 
     import { onMount } from "svelte/internal";
     import { fly } from "svelte/transition";
     import Navigation from "./navigation.svelte";
+    import type { PageData } from "./$types";
     let visible = false;
     const fadeInDelay = 500;
-    export let data: Subject<any>;
-    let greeting : string[]= []
-    let cvLink : string = "";
-
-    data.subscribe(value=>{
-        greeting = value.greeting;
-        cvLink = value.profile.cv;
-    });
+    export let data: PageData;
+    console.log(data)
+    let greeting : string[] = data.greeting
+    let cvLink : string = data.profile.cv;
 
     onMount(async () => {        
         setTimeout(() => {
@@ -32,13 +28,13 @@ import type { Subject } from "rxjs";
                 id="computer"
                 class="mr-auto w-1/6 lg:w-1/12 h-full"
                 type="image/svg+xml"
-                src="assets/images/computer.svg"
+                src="computer.svg"
                 alt=""
             />
 
             <img
                 id="server"
-                src="assets/images/server.svg"
+                src="server.svg"
                 class="ml-auto w-1/6 lg:w-1/12"
                 alt=""
             />
@@ -72,13 +68,13 @@ import type { Subject } from "rxjs";
         <div class="p-10 flex flex-row w-full">
             <img
                 id="router"
-                src="assets/images/router.svg"
+                src="router.svg"
                 class="mr-auto w-1/6 lg:w-1/12"
                 alt=""
             />
             <img
                 id="switch"
-                src="assets/images/switch.svg"
+                src="switch.svg"
                 class="ml-auto w-1/6 lg:w-1/12"
                 alt=""
             />
@@ -89,7 +85,7 @@ import type { Subject } from "rxjs";
 <style>
 
     #home-wrapper {
-        background-image: url("/assets/images/background.svg");
+        background-image: url("/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
