@@ -1,22 +1,9 @@
-const production = !process.env.ROLLUP_WATCH;
-module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {},
   },
-  variants: {
-    extend: {},
-  },
   plugins: [],
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
-  purge: {
-    content: [
-      "./src/**/*.svelte",
-    ],
-    enabled: production // disable purge in dev
-  },
 }
+

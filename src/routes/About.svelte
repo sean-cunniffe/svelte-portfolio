@@ -1,37 +1,25 @@
 <script lang="ts">
-import type { Subject } from "rxjs";
 
     import { fly } from "svelte/transition";
     import GithubButton from "./githubButton.svelte"
+    import type { PageData } from "./$types";
+    import { onMount } from "svelte";
     export let visible = false;
-    export let data: Subject<any>;
-    let education: Education[] = [];
-    let workExperience: WorkExperience[] = []
-    let bio: String[] = []
-    let profilePic = ""
-    let linkedin = ""
-    let email = ""
-    let github = ""
-    data.subscribe(value=>{
-        education = value.profile.education
-        workExperience = value.profile.workExperience
-        bio = value.profile.bio;
-        profilePic = value.profile.profilePic
-        linkedin = value.profile.linkedin
-        github = value.profile.github
-        email = value.profile.email
-        let pp = (<HTMLImageElement>document.getElementById("profilePic"));
-        if(pp)
-            pp.src = value.profile.profilePic;
-    });
-    interface Education {
-        title: string;  
-        dateFinished: string;
-    }
-    interface WorkExperience{
-        place: string;
-        dateFinished: string
-    }
+    export let data: PageData;
+
+    let education = data.profile.education
+    let workExperience = data.profile.workExperience
+    let bio = data.profile.bio;
+    let profilePic = data.profile.profilePic
+    let linkedin = data.profile.linkedin
+    let github = data.profile.github
+    let email = data.profile.email
+
+    // onMount(()=>{
+    //     let pp = (<HTMLImageElement>document.getElementById("profilePic"));
+    //     if(pp)
+    //         pp.src = data.profile.profilePic;
+    // })
 </script>
 
 <div id="about-wrapper" class="select-none"
@@ -189,7 +177,7 @@ import type { Subject } from "rxjs";
     }
 
     #about-wrapper {
-        background-image: linear-gradient(gray,black),url("/assets/images/background.svg");
+        background-image: linear-gradient(gray,black),url("/background.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
