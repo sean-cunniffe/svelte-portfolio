@@ -7,6 +7,7 @@ body {
     padding: 0;
     height: auto;
 }
+
 body::-webkit-scrollbar {
     width: 0.5rem;
 }
@@ -17,4 +18,11 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background: white;
+}
+
+@font-face {
+    font-family: 'Nerd';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/NerdFont-Regular.ttf') format('truetype')
 }

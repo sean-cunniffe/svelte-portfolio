@@ -1,0 +1,101 @@
+{
+    "greeting": [
+        "Hi, I'm Sean Cunniffe.",
+        "Backend Software Engineer"
+    ],
+    "profile": {
+        "bio": [
+            "I'm a backend software engineer at LM Ericsson, focusing on developing new features for network management tools. I have experience working with agile teams and collaborating with multiple teams on a product.",
+            "I hold a first-class honors degree in Masters in Applied Software Engineering. I enjoy learning new technologies and have a passion for staying up-to-date. In my free time, I like going to the gym and spending time outdoors.",
+            "I'm dedicated to delivering exceptional software solutions and driving positive impact."
+        ],
+        "cv": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/two-page-CV.pdf?alt=media&token=003b757c-5fb3-47fd-b689-9b367d29c851",
+        "education": [
+            {
+                "dateFinished": "2022",
+                "title": "Applied Software Engineering (Msc) in TUS"
+            },
+            {
+                "dateFinished": 2019,
+                "title": "Electronic and Computer Engineering (BEng) in NUI Galway"
+            }
+        ],
+        "email": "sean.cunniffe927@gmail.com",
+        "firstName": "Sean",
+        "github": "https://github.com/sean-cunniffe",
+        "lastName": "Cunniffe",
+        "linkedin": "https://www.linkedin.com/in/sean-cunniffe-60a6931b8/",
+        "profilePic": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/profile-pic-1-smaller.jpg?alt=media&token=06dee6b8-cac4-4bf3-98a9-47473a030761",
+        "workExperience": [
+            {
+                "dateFinished": "Aug/2018 (8 months)",
+                "place": "Boston Scientific as Co-op"
+            },
+            {
+                "dateFinished": "May/2021 (4 months)",
+                "place": "Retail Solutions as Software Technician"
+            },
+            {
+                "dateFinished": "Current",
+                "place": "LM Ericssons as Backend Software Engineer"
+            }
+        ]
+    },
+    "project": [
+        {
+            "description": "A network event management tool that lets users display data about the network events. This project was developed over 3, 4 week sprints by a team of 5 developers during our masters program.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/Network-management-tool.png?alt=media&token=006435de-1742-4494-807a-9a311c6c0cde",
+            "title": "Network Management Tool",
+            "toolsAndSkills": "Java, Java EE, JPA, Wildfly (JBOSS), Arquillian, Junit, Mockito, Selenium, JQuery, JavaScript , Jenkins, SolarQube, Jira, Agile Methodology"
+        },
+        {
+            "description": "A bicycle companys website where customers can rent bicycles online and staff can manage inventory, customers, bookings, and other staff. This project was completed using TDD and with a agile scrum team.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/greenway.jpg?alt=media&token=eb4128fe-89a9-41bf-b1cb-466f2063dd04",
+            "title": "Greenway Bicycles",
+            "toolsAndSkills": "Java, JSF, HTML, CSS, Mockito, CircleCi, Bitbucket, Jira"
+        },
+        {
+            "description": "A Rest API for users to track their exercise progress. The user can create an account that is verified by email verification and then tracks their progress using the endpoints provided. The API uses JSON Web Tokens for authentication which is added to the security. filters of Spring Security.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/fitness-tracker-smaller.jpg?alt=media&token=4f3031cf-6c85-4afe-a771-a75f4717837b",
+            "repoLink": "https://github.com/sean-cunniffe/exercise-tracking-api",
+            "title": "Exercise Tracker API",
+            "toolsAndSkills": "Java, Spring Boot/Security/Data"
+        },
+        {
+            "description": "A visual demonstration of two different searching algorithms for searching trees/graphs, Depth-First Search and Breadth-First Search. The app generates a random graph of nodes with random connections, the two searching algorithms transverse the graph to either find a selected node or to just demonstrate how they transverse a graph.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/search-smaller.jpg?alt=media&token=71063de4-5e80-437e-b1c6-a111ebcf5b5d",
+            "link": "https://sean-cunniffe.github.io/Tree-Search",
+            "repoLink": "https://github.com/sean-cunniffe/Tree-Search",
+            "title": "Visual Searching Algorithms",
+            "toolsAndSkills": "TypeScript, Angular, Searching Algorithms"
+        },
+        {
+            "description": "A visual demonstration and explanation of four different sorting algorithms.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/sorting-algo.jpg?alt=media&token=2e373751-5342-4932-b362-595ff52f3fea",
+            "link": "https://sean-cunniffe.github.io/visual-sorting-algorithms/",
+            "repoLink": "https://github.com/sean-cunniffe/visual-sorting-algorithms",
+            "title": "Visual Sorting Algorithms",
+            "toolsAndSkills": "TypeScript, Sorting algorithms"
+        },
+        {
+            "description": "A Classification and Regression Tree algorithm that classifies a set of parameters based on a given dataset. The algorithm builds a decision tree based on the Gini's impurity index. I built this project using Test Driven Development.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/decision-tree.png?alt=media&token=47fcf4a1-0551-4ae7-8d16-acbc01b31ed9",
+            "repoLink": "https://github.com/sean-cunniffe/python-CART",
+            "title": "Cart.py",
+            "toolsAndSkills": "Python, TDD"
+        },
+        {
+            "description": "A simple web app to display my projects, developed using svelte and styled using Tailwind. Data and images are stored on a firebase database, so projects can be easily added and information can be changed.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/webportfolio.JPG?alt=media&token=bd755392-5ac6-48b1-8b0a-785483f44329",
+            "repoLink": "https://github.com/sean-cunniffe/svelte-portfolio",
+            "title": "Web Portfolio",
+            "toolsAndSkills": "Typescript, Svelte, Tailwind, Firebase"
+        },
+        {
+            "description": "A web portfolio developed using Angular on the frontend and spring boot to fetch data from a mysql database. Spring boot was deployed on heroku.",
+            "image": "https://firebasestorage.googleapis.com/v0/b/web-portfolio-b463f.appspot.com/o/full-stack-web-potfolio-smaller.jpg?alt=media&token=a39c1a9d-717f-4cf8-93f9-2e6da11591fa",
+            "title": "Web Portfolio (OLD)",
+            "toolsAndSkills": "Typescript, Angular, Bootstrap, Spring Boot, Heroku"
+        }
+    ]
+}
