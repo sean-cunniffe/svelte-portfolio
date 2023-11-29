@@ -1,148 +1,141 @@
 <script lang="ts">
     import { onMount } from "svelte/internal";
-    import { fly } from "svelte/transition";
     import Navigation from "./navigation.svelte";
     import type { PageData } from "./$types";
-    let visible = false;
-    const fadeInDelay = 500;
     export let data: PageData;
-    console.log(data);
-    let greeting: string[] = data.greeting;
-    let cvLink: string = data.profile.cv;
 
     onMount(async () => {
-        setTimeout(() => {
-            visible = true;
-        }, fadeInDelay);
+        let background = document.getElementById(
+            "home-portait",
+        ) as HTMLImageElement;
+        let slide = document.getElementById(
+            "slide-container",
+        ) as HTMLImageElement;
+        document.fonts.ready.then(() => {
+            if (background.complete) {
+                background.style.animationPlayState = "running";
+                slide.style.animationPlayState = "running";
+            }
+        });
+        background.addEventListener("load", () => {
+            document.fonts.ready.then(() => {
+                background.style.animationPlayState = "running";
+                slide.style.animationPlayState = "running";
+            });
+        });
+        if (background.complete) {
+            background.style.animationPlayState = "running";
+            slide.style.animationPlayState = "running";
+        }
     });
 </script>
 
-<div id="home-wrapper" class="select-none">
+<div
+    id="home-container"
+    class="h-150-screen flex flex-col justify-center w-full overflow-hidden"
+>
     <div
-        id="parent"
-        class="min-h-screen w-screen flex flex-col md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 relative overflow-hidden"
+        id="home-content"
+        class="mb-auto h-screen flex flex-col justify-center"
     >
-        <div class="mb-auto mt-auto">
-            {#if visible}
-                <h3
-                    transition:fly={{ y: 200, duration: 2000 }}
-                    class="self-center text-2xl md:text-5xl text-center"
+        <div
+            class="flex flex-col-reverse lg:flex-row justify-center overflow-hidden mx-auto lg:backdrop-blur-sm lg:border-opacity-20"
+        >
+            <div
+                id="slide-container"
+                class="my-auto text-center lg:text-right font-nerd font-semibold color-main overflow-hidden"
+            >
+                <h1
+                    class="animation-slide-left anim-delay-750 text-lg lg:text-5xl ml-auto"
                 >
-                    {#each greeting as greeting}
-                        {greeting}
-                        <br />
-                    {/each}
-                </h3>
-            {/if}
-            <div class="terminal mx-auto mt-5 max-w-3xl pb-32">
-                <div class="title-bar">
-                    <span class="close-button bg-red-500" />
-                    <span class="minimize-button bg-yellow-500" />
-                    <span class="maximize-button bg-green-500" />
+                    <span>I'm </span><span class="color-highlight"
+                        >Seán Cunniffe</span
+                    >
+                </h1>
+                <h1
+                    class="animation-slide-left anim-delay-1750 text-lg lg:text-5xl ml-auto"
+                >
+                    Software Engineer
+                </h1>
+                <h1
+                    class="animation-slide-left text-xs lg:text-base anim-delay-2000 ml-autot"
+                >
+                    Experienced in cloud-based backend development
+                </h1>
+                <div class="animation-slide-left anim-delay-3000">
+                    <Navigation data={data}/>
                 </div>
-                <div class="terminal-body">
-                    <p>
-                        <span class="command-line"
-                            >It all starts at the terminal...</span
-                        >
-                    </p>
-                    <p>
-                        <span class="command-line">Select an option:</span>
-                    </p>
-                    <p class="selectable">
-                        <span class="command-line">1) About</span>
-                    </p>
-                    <p class="selectable">
-                        <span class="command-line">2) Projects</span>
-                    </p>
-                    <p class="selectable">
-                        <span class="command-line">3) Contact</span>
-                    </p>
-                    <p><span class="command-line"><span class="cursor"></span></span></p>
-                </div>
+            </div>
+            <div class="flex flex-row relative mb-3 lg:mb-0 overflow-visible">
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <img
+                    id="home-portait"
+                    class="lg:max-w-screen-sm animation-shift-up-fade relative mix-blend-normal"
+                    src="portait.png"
+                />
             </div>
         </div>
     </div>
 </div>
 
 <style>
-    #home-wrapper {
-        background: rgb(40, 38, 41);
-        background: linear-gradient(
-            90deg,
-            rgba(40, 38, 41, 1) 36%,
-            rgba(119, 65, 103, 1) 36%
-        );
+    #slide-container {
+        animation-play-state: paused;
+    }
+
+    .h-150-screen {
+        height: 150vh;
+    }
+    #home-container {
+        background: url("rain.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
     }
-    #home-wrapper::after {
-        background-color: hsl(316, 30%, 36%);
-        width: 68%;
+
+    .animation-shift-up-fade {
+        animation: shift-up-fade forwards 1.5s;
+        animation-play-state: paused;
     }
 
-    .command-line::before {
-        font-family: "Nerd";
-        content: "sean@Seans-Desktop:~$";
-        color: #ffa500; /* Orange color for the dollar sign */
-        margin-right: 5px;
-    }
-    .terminal {
-        background-color: #333;
-        border: 2px solid #d3d3d3;
-        border-radius: 5px;
-        overflow: hidden;
+    .animation-slide-left {
+        transform: translateX(200%);
+        opacity: 0;
+        animation: slide-right forwards 1.5s;
+        animation-play-state: inherit;
     }
 
-    .title-bar {
-        background-color: #d3d3d3;
-        display: flex;
-        align-items: center;
-        padding: 5px;
+    .anim-delay-750 {
+        animation-delay: 750ms;
     }
 
-    .close-button,
-    .minimize-button,
-    .maximize-button {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin-right: 3px;
-        margin-left: 3px;
+    .anim-delay-1750 {
+        animation-delay: 1750ms;
+    }
+    .anim-delay-2000 {
+        animation-delay: 2000ms;
+    }
+    .anim-delay-3000 {
+        animation-delay: 3000ms;
     }
 
-    .terminal-body {
-        padding: 10px;
-    }
-
-    .terminal-body > p {
-        font-family: "Nerd";
-        margin: 2px;
-        line-height: 1.4;
-        color: aliceblue;
-    }
-    .selectable:hover {
-        color: lightgreen;
-    }
-
-    .cursor {
-        display: inline-block;
-        width: 1px;
-        height: 1rem;
-        background-color: aliceblue; /* Green color for the cursor */
-        animation: cursorAnimation 2s infinite; /* Flashing animation */
-    }
-
-    @keyframes cursorAnimation {
-        0% {
-            opacity: 1;
-        }
-        50% {
+    @keyframes shift-up-fade {
+        from {
+            transform: translateY(10%);
             opacity: 0;
         }
-        100% {
-            opacity: 1;
+    }
+
+    @keyframes shift {
+        from {
+            transform: translateX(1%);
+        }
+    }
+
+    @keyframes slide-right {
+        to {
+            opacity: 100%;
+            transform: translateX(0);
         }
     }
 </style>

@@ -19,7 +19,7 @@
 
 <div id="projects-wrapper">
     <div
-        class="flex flex-col md:w-screen xl:w-3/4 m-auto pb-20 sm:p-7 overflow-x-hidden bg-white"
+        class="flex flex-col md:w-screen xl:w-3/4 m-auto pb-20 sm:p-7 overflow-x-hidden bg-main"
     >
         {#each projects as project}
             <ProjectCard

@@ -1,21 +1,21 @@
 <script lang="ts">
-    import Home from "./home.svelte";
+	import Home from "./home.svelte";
 	import About from "./About.svelte";
 	import Projects from "./projects.svelte";
-	import ComponentTitle from "./componentTitle.svelte";
-    import type { PageData } from './$types';
-    import { onMount } from "svelte";
+	import type { PageData } from "./$types";
+	import { onMount } from "svelte";
 
-    export let data: PageData;
+	export let data: PageData;
 
-    let aboutAnimation = false;
+	let aboutAnimation = false;
 	let projectAnimation = false;
+
 
 	onMount(()=>{
 		window.addEventListener("scroll", () => {
 			playAnimations();
 		});
-	})
+	});
 
 	// check if compoennt is in view, if so set visible to true and animation will start
 	// once true, keep true so animations dont keep repeating
@@ -48,22 +48,15 @@
 			left + width > window.pageXOffset
 		);
 	}
-
 </script>
-
+<svelte:head>
+    <title>Sean Cunniffe Web Portfolio</title> 
+</svelte:head>
 <div id="parent">
-	<Home data={data} />
-	<ComponentTitle title={"About 🕺"}/>
-	<About data={data} visible={aboutAnimation} />
-	<ComponentTitle title={"Projects 🤓"} />
-	<Projects data={data} visible={projectAnimation} />
+	<Home {data} />
+	<About {data} visible={aboutAnimation} />
+	<Projects {data} visible={projectAnimation} />
 </div>
 
 <style global lang="postcss">
-	#parent {
-		scroll-snap-type: block mandatory;
-	}
-	#parent > * {
-		scroll-snap-align: start;
-	}
 </style>

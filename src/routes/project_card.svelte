@@ -30,7 +30,7 @@
                 {title}
             </h3>
             <div class="flex flex-col md:flex-row mt-2 mx-auto md:mx-0">
-                <h2 class=" font-semibold mr-2 text-center md:text-left">Tools/Skills:</h2>
+                <h2 class=" font-semibold mr-2 text-center md:text-left color-highlight">Tools/Skills:</h2>
                 <p class="text-center md:text-left">{skills}</p>
             </div>
             <div class="flex flex-row justify-center md:justify-start">
