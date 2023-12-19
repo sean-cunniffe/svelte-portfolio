@@ -5,13 +5,6 @@ orbs:
 workflows:
   sample:
     jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: "20.2"
-          pkg-manager: npm
+      - node/test
       - node/run:
-          version: "20.2"
-          pkg-manager: npm
-          trigger: lint 
+          npm-run: lint
