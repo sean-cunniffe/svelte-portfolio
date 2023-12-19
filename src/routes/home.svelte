@@ -1,93 +1,141 @@
 <script lang="ts">
-
     import { onMount } from "svelte/internal";
-    import { fly } from "svelte/transition";
     import Navigation from "./navigation.svelte";
     import type { PageData } from "./$types";
-    let visible = false;
-    const fadeInDelay = 500;
     export let data: PageData;
-    console.log(data)
-    let greeting : string[] = data.greeting
-    let cvLink : string = data.profile.cv;
 
-    onMount(async () => {        
-        setTimeout(() => {
-            visible = true;
-        }, fadeInDelay);
-    })
+    onMount(async () => {
+        let background = document.getElementById(
+            "home-portait",
+        ) as HTMLImageElement;
+        let slide = document.getElementById(
+            "slide-container",
+        ) as HTMLImageElement;
+        document.fonts.ready.then(() => {
+            if (background.complete) {
+                background.style.animationPlayState = "running";
+                slide.style.animationPlayState = "running";
+            }
+        });
+        background.addEventListener("load", () => {
+            document.fonts.ready.then(() => {
+                background.style.animationPlayState = "running";
+                slide.style.animationPlayState = "running";
+            });
+        });
+        if (background.complete) {
+            background.style.animationPlayState = "running";
+            slide.style.animationPlayState = "running";
+        }
+    });
 </script>
 
-<div id="home-wrapper" class="select-none">
+<div
+    id="home-container"
+    class="h-150-screen flex flex-col justify-center w-full overflow-hidden"
+>
     <div
-        id="parent"
-        class="min-h-screen w-screen flex flex-col md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 relative overflow-hidden"
+        id="home-content"
+        class="mb-auto h-screen flex flex-col justify-center"
     >
-        <div class="p-10 flex flex-row w-full">
-            <embed
-                id="computer"
-                class="mr-auto w-1/6 lg:w-1/12 h-full"
-                type="image/svg+xml"
-                src="computer.svg"
-                alt=""
-            />
-
-            <img
-                id="server"
-                src="server.svg"
-                class="ml-auto w-1/6 lg:w-1/12"
-                alt=""
-            />
-        </div>
-        <div class="mb-auto mt-auto">
-            {#if visible}
-                <h3
-                    transition:fly={{ y: -200, duration: 2000 }}
-                    class="self-center text-2xl md:text-5xl text-center"
+        <div
+            class="flex flex-col-reverse lg:flex-row justify-center overflow-hidden mx-auto lg:backdrop-blur-sm lg:border-opacity-20"
+        >
+            <div
+                id="slide-container"
+                class="my-auto text-center lg:text-right font-nerd font-semibold color-main overflow-hidden"
+            >
+                <h1
+                    class="animation-slide-left anim-delay-750 text-lg lg:text-5xl ml-auto"
                 >
-                {#each greeting as greeting}
-                    {greeting}
-                    <br>
-                {/each}
-                </h3>
-                <Navigation />
-                <a
-                    target="_blank"
-                    href="{cvLink}"
-                    class="text-center"
-                >
-                    <h3
-                        class="mt-4 md:mt-0 text-blue-600 text-xl"
-                        transition:fly={{ y: 200, duration: 2200, delay: 2000 }}
+                    <span>I'm </span><span class="color-highlight"
+                        >Seán Cunniffe</span
                     >
-                        Link to CV
-                    </h3>
-                </a>
-            {/if}
-        </div>
-        <div class="p-10 flex flex-row w-full">
-            <img
-                id="router"
-                src="router.svg"
-                class="mr-auto w-1/6 lg:w-1/12"
-                alt=""
-            />
-            <img
-                id="switch"
-                src="switch.svg"
-                class="ml-auto w-1/6 lg:w-1/12"
-                alt=""
-            />
+                </h1>
+                <h1
+                    class="animation-slide-left anim-delay-1750 text-lg lg:text-5xl ml-auto"
+                >
+                    Software Engineer
+                </h1>
+                <h1
+                    class="animation-slide-left text-xs lg:text-base anim-delay-2000 ml-autot"
+                >
+                    Experienced in cloud-based backend development
+                </h1>
+                <div class="animation-slide-left anim-delay-3000">
+                    <Navigation data={data}/>
+                </div>
+            </div>
+            <div class="flex flex-row relative mb-3 lg:mb-0 overflow-visible">
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <img
+                    id="home-portait"
+                    class="lg:max-w-screen-sm animation-shift-up-fade relative mix-blend-normal"
+                    src="portait.png"
+                />
+            </div>
         </div>
     </div>
 </div>
 
 <style>
+    #slide-container {
+        animation-play-state: paused;
+    }
 
-    #home-wrapper {
-        background-image: url("/background.svg");
+    .h-150-screen {
+        height: 150vh;
+    }
+    #home-container {
+        background: url("/rain.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
+    }
+
+    .animation-shift-up-fade {
+        animation: shift-up-fade forwards 1.5s;
+        animation-play-state: paused;
+    }
+
+    .animation-slide-left {
+        transform: translateX(200%);
+        opacity: 0;
+        animation: slide-right forwards 1.5s;
+        animation-play-state: inherit;
+    }
+
+    .anim-delay-750 {
+        animation-delay: 750ms;
+    }
+
+    .anim-delay-1750 {
+        animation-delay: 1750ms;
+    }
+    .anim-delay-2000 {
+        animation-delay: 2000ms;
+    }
+    .anim-delay-3000 {
+        animation-delay: 3000ms;
+    }
+
+    @keyframes shift-up-fade {
+        from {
+            transform: translateY(10%);
+            opacity: 0;
+        }
+    }
+
+    @keyframes shift {
+        from {
+            transform: translateX(1%);
+        }
+    }
+
+    @keyframes slide-right {
+        to {
+            opacity: 100%;
+            transform: translateX(0);
+        }
     }
 </style>

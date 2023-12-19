@@ -25,7 +25,7 @@
 <div id="about-wrapper" class="select-none"
 >
     <div
-        class="min-h-screen flex flex-col justify-center mb-8 md:mb-0 md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 bg-white overflow-x-hidden"
+        class="min-h-screen flex flex-col justify-center mb-8 md:mb-0 md:w-screen xl:w-3/4 m-auto p-10 pb-20 sm:p-7 bg-main overflow-x-hidden"
     >
     
         <div class="flex flex-col md:flex-row w-full m-auto justify-center">
@@ -117,7 +117,7 @@
                     }}
                 >
                     <h1
-                        class="text-center md:text-left mt-3.5 md:mt-0 text-3xl font-thin"
+                        class="text-center md:text-left mt-3.5 md:mt-0 text-3xl font-thin color-highlight"
                     >
                         Hi, Im Sean
                     </h1>
@@ -132,8 +132,8 @@
                         x: 1000,
                         duration: 2000,
                     }}>
-                        <h2 class="font-bold mt-4">Education</h2>
-                        <h2 class="font-bold mt-4 text-center">
+                        <h2 class="font-bold mt-4 color-highlight">Education</h2>
+                        <h2 class="font-bold mt-4 text-center color-highlight">
                             Date finished
                         </h2>
                         {#each education as ed}
@@ -150,8 +150,8 @@
                         duration: 2000,
                         delay:500
                     }}>
-                        <h2 class="font-bold mt-4">Work Experience</h2>
-                        <h2 class="font-bold mt-4 text-center">
+                        <h2 class="font-bold mt-4 color-highlight">Work Experience</h2>
+                        <h2 class="font-bold mt-4 text-center color-highlight">
                             Date finished
                         </h2>
                         {#each workExperience as work}

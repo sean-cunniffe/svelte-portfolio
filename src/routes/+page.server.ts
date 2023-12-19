@@ -25,8 +25,6 @@ import { getDatabase, ref, child, get, DataSnapshot } from "firebase/database";
 
 export const load = (async ({ params }) => {
     let data = (await getFirebaseData()).val()
-    console.log("Printing data")
-    console.log(data)
     return data
 
 }) satisfies PageServerLoad;
