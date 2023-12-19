@@ -1,14 +1,14 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
     import GithubButton from "./githubButton.svelte"
-    export let title = null;
-    export let description = null;
-    export let skills = null;
-    export let imageURL = null;
+    export let title: string|null = null;
+    export let description: string|null = null;
+    export let skills: string|null = null;
+    export let imageURL: string|null = null;
     export let delay = 0;
-    export let link = null;
+    export let link: string|null= null;
     export let visible = false;
-    export let repoLink = null;
+    export let repoLink: string|null= null;
 </script>
 
 {#if visible}

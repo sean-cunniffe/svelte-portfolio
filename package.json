@@ -6,11 +6,10 @@
         "test": "echo test-placeholder",
         "dev": "vite dev --host",
         "lint:fix": "prettier . --write",
-        "lint": "prettier . --check",
+        "lint": "prettier . --check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "testdata": "echo 'retrieve data from firebase manually'",
         "build": "vite build",
         "preview": "vite preview",
-        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
         "deploy": "firebase deploy"
     },
