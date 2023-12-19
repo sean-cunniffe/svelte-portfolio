@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@4.7
+  node: circleci/node@5.1.1
 
 workflows:
   sample:
@@ -11,6 +11,7 @@ workflows:
           # https://circleci.com/developer/images/image/cimg/node
           version: "20.2"
           pkg-manager: npm
-      - node/lint:
-          version: '20.2'
+      - node/run:
+          version: "20.2"
           pkg-manager: npm
+          trigger: lint 
