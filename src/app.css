@@ -18,22 +18,29 @@ body {
 }
 
 .color-main {
-    color: white
+    color: white;
 }
 
 .color-highlight {
-    color: rgb(74 222 128)
+    color: rgb(74 222 128);
 }
 
-p,h1,h2,h3,h4,h5,h6,span{
-    color: var(--color-main)   
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    color: var(--color-main);
 }
 
 @font-face {
     font-family: 'Nerd';
     font-style: normal;
     font-weight: 400;
-    src: url('/NerdFont-Regular.ttf') format('truetype')
+    src: url('/NerdFont-Regular.ttf') format('truetype');
 }
 
 body::-webkit-scrollbar {
@@ -49,5 +56,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 .font-nerd {
-    font-family: "Nerd";
+    font-family: 'Nerd';
 }
