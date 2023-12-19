@@ -87,7 +87,7 @@
         height: 150vh;
     }
     #home-container {
-        background: url("rain.svg");
+        background: url("/rain.svg");
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
