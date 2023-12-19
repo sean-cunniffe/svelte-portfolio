@@ -10,6 +10,9 @@
 
     function changeComponent(but: NavButtons) {
         const el = document.getElementById(but.navId);
+        if (el == null) {
+            return
+        }
         el.scrollIntoView({
             behavior: "smooth",
             inline: "start",

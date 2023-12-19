@@ -172,9 +172,6 @@
 
 <style>
 
-    .grid-auto-w{
-        grid-template-columns: auto 1fr 1fr;
-    }
 
     #about-wrapper {
         background-image: linear-gradient(gray,black),url("/background.svg");
@@ -198,18 +195,6 @@
         fill: white;
     }
     #linkedin:hover {
-        transition-property: background-color, border-color, color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-        background-color: #0e76a8;
-    }
-    #github-icon:hover > path {
-        transition-property: background-color, border-color, color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-        fill: white;
-    }
-    #github-icon:hover {
         transition-property: background-color, border-color, color, fill, stroke;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 150ms;
