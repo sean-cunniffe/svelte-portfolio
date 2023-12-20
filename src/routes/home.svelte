@@ -91,6 +91,7 @@
         background-attachment: fixed;
         background-position: center;
         background-repeat: repeat;
+        background-size: cover;
     }
 
     .animation-shift-up-fade {
