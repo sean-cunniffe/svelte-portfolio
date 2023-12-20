@@ -4,7 +4,6 @@
 	import Projects from "./projects.svelte";
 	import type { PageData } from "./$types";
 	import { onMount } from "svelte";
-
 	export let data: PageData;
 
 	let aboutAnimation = false;
