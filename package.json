@@ -10,14 +10,15 @@
         "testdata": "echo 'retrieve data from firebase manually'",
         "build": "vite build",
         "preview": "vite preview",
+        "deploy:dev": "firebase hosting:channel:deploy static-deploy --project $FIREBASE_PROJECTID",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-        "deploy": "firebase deploy",
-        "firebase-init": "firebase experiments:enable webframeworks && firebase init"
+        "firebase-init": "firebase experiments:enable webframeworks"
     },
     "devDependencies": {
         "@sveltejs/adapter-static": "^2.0.0",
         "@sveltejs/kit": "^1.5.0",
         "autoprefixer": "^10.4.14",
+        "firebase-tools": "^13.0.2",
         "postcss": "^8.4.24",
         "svelte": "^3.54.0",
         "svelte-check": "^3.0.1",
