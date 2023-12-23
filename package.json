@@ -10,7 +10,7 @@
         "testdata": "echo 'retrieve data from firebase manually'",
         "build": "vite build",
         "preview": "vite preview",
-        "deploy:dev": "firebase hosting:channel:deploy static-deploy",
+        "deploy:dev": "firebase hosting:channel:deploy static-deploy --project $FIREBASE_PROJECTID",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
         "firebase-init": "firebase experiments:enable webframeworks && firebase init"
     },
