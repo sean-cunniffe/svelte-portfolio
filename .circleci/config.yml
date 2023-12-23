@@ -2,6 +2,14 @@ version: 2.1
 orbs:
     node: circleci/node@5.1.1
 jobs:
+    prod-deploy:
+        docker:
+            - image: cimg/node:21.4.0
+        steps:
+            - run:
+                  name: PLACEHOLDER
+                  command: |
+                      echo "placeholder for prod deployment"
     dev-deploy:
         docker:
             - image: cimg/node:21.4.0
@@ -41,3 +49,7 @@ workflows:
                   filters:
                       branches:
                           only: dev
+            - prod-deploy:
+                  filters:
+                      branches:
+                          only: master
