@@ -24,16 +24,16 @@ workflows:
             - node/test:
                   filters:
                       branches:
-                          only: ^dev$
+                          only: dev
             - node/run:
                   npm-run: lint
                   filters:
                       branches:
-                          only: ^dev$
+                          only: dev
             - dev-deploy:
                   requires:
                       - node/test
                       - node/run
                   filters:
                       branches:
-                          only: ^dev$
+                          only: dev
