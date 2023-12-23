@@ -1,10 +1,39 @@
 version: 2.1
 orbs:
     node: circleci/node@5.1.1
+jobs:
+    dev-deploy:
+        docker:
+            - image: circleci/node@5.1.1
+        steps:
+            - checkout
+            - run:
+                  name: install firebase tool
+                  command: npm install firebase-tools
+            - run:
+                  name: Authenticate
+                  command: |
+                      echo $SA_KEY > credentials.json
+            - run:
+                  name: deploy
+                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json firebase hosting:channel:deploy static-deploy
 
 workflows:
-    pre-PR:
+    main-workflow:
         jobs:
-            - node/test
+            - node/test:
+                  filters:
+                      branches:
+                          only: ^dev$
             - node/run:
                   npm-run: lint
+                  filters:
+                      branches:
+                          only: ^dev$
+            - dev-deploy:
+                  requires:
+                      - node/test
+                      - node/run
+                  filters:
+                      branches:
+                          only: ^dev$
