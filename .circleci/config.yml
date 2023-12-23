@@ -9,7 +9,7 @@ jobs:
             - checkout
             - run:
                   name: install firebase tool
-                  command: npm install --save-dev firebase-tools
+                  command: npm install --save-dev firebase-tools && npm run firebase-init
             - run:
                   name: Authenticate
                   command: |
