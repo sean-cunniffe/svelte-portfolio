@@ -9,14 +9,14 @@ jobs:
             - checkout
             - run:
                   name: install firebase tool
-                  command: npm install firebase-tools
+                  command: npm install --save-dev firebase-tools
             - run:
                   name: Authenticate
                   command: |
                       echo $SA_KEY > credentials.json
             - run:
                   name: deploy
-                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json firebase hosting:channel:deploy static-deploy
+                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run deploy
 
 workflows:
     main-workflow:
