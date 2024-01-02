@@ -49,7 +49,8 @@
 	}
 </script>
 <svelte:head>
-    <title>Sean Cunniffe Web Portfolio</title> 
+    <title>Sean Cunniffe Web Portfolio</title>
+	<meta name="description" content="Explore the professional portfolio of Sean Cunniffe, a dedicated Backend Software Engineer. #SoftwareEngineer #AgileDevelopment #NetworkManagement #BackendDevelopment #Portfolio">
 </svelte:head>
 <div id="parent">
 	<Home {data} />
