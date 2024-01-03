@@ -4,10 +4,10 @@
     "private": true,
     "scripts": {
         "test": "echo test-placeholder",
-        "dev": "vite dev --host",
+        "dev": "export $(cat .env | xargs) && vite dev --host",
+        "database:emulate": "firebase emulators:start --only database --export-on-exit --import .firebase/test-data/",
         "lint:fix": "prettier . --write",
         "lint": "prettier . --check && svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-        "testdata": "echo 'retrieve data from firebase manually'",
         "build": "vite build",
         "preview": "vite preview",
         "deploy:dev": "firebase hosting:channel:deploy static-deploy --project $FIREBASE_PROJECTID",
