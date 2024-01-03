@@ -6,10 +6,21 @@ jobs:
         docker:
             - image: cimg/node:21.4.0
         steps:
+            - checkout
             - run:
-                  name: PLACEHOLDER
+                  name: install firebase tool
+                  command: npm install --save-dev firebase-tools && npm run firebase-init
+            - run:
+                  name: Authenticate
                   command: |
-                      echo "placeholder for prod deployment"
+                      echo $SA_KEY > credentials.json
+            - run:
+                  name: build firebase.json
+                  command: |
+                      echo $FIREBASE_DEPLOYMENT > firebase.json
+            - run:
+                  name: deploy
+                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run 'deploy:prod'
     dev-deploy:
         docker:
             - image: cimg/node:21.4.0
