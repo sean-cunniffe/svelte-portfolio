@@ -1,8 +1,8 @@
 import type { PageServerLoad } from './$types'
-import { initializeApp } from 'firebase/app'
+import { initializeApp, type FirebaseOptions } from 'firebase/app'
 import { getDatabase, ref, child, get, DataSnapshot } from 'firebase/database'
 export const prerender = true
-const firebaseConfig = {
+const firebaseConfig: FirebaseOptions = {
     apiKey: process.env.FIREBASE_APIKEY,
     authDomain: process.env.FIREBASE_AUTHDOMAIN,
     databaseURL: process.env.FIREBASE_DATABASEURL,
