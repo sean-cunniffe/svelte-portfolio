@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageServerData } from "./$types";
+    import type { PageServerData } from "../../routes/$types";
 
 
     import ProjectCard from "./project_card.svelte";

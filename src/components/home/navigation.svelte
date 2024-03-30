@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
+    import type { PageData } from "../../routes/$types";
     export let data: PageData;
     let cvLink: string = data.profile.cv;
 
