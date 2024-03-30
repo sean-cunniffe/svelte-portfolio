@@ -54,7 +54,7 @@
 </svelte:head>
 <div id="parent">
 	<Home {data} />
-	<About {data} visible={aboutAnimation} />
+	<About {data} />
 	<Projects {data} visible={projectAnimation} />
 </div>
 

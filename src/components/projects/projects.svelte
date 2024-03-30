@@ -38,13 +38,5 @@
 
 <style>
     #projects-wrapper {
-        width: 100%;
-        min-height: 100vh;
-        background-image: linear-gradient(gray, white),
-            url("/background.svg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: repeat;
-        background-blend-mode: saturation;
     }
 </style>
