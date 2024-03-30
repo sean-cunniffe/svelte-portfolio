@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Home from "./home.svelte";
-	import About from "./About.svelte";
-	import Projects from "./projects.svelte";
+	import Home from "../components/home/home.svelte";
+	import About from "../components/about/About.svelte";
+	import Projects from "../components/projects/projects.svelte";
 	import type { PageData } from "./$types";
 	import { onMount } from "svelte";
 	export let data: PageData;

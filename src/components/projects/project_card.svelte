@@ -1,6 +1,6 @@
 <script lang="ts">
     import { fly } from "svelte/transition";
-    import GithubButton from "./githubButton.svelte"
+    import GithubButton from "../_common/githubButton.svelte"
     export let title: string|null = null;
     export let description: string|null = null;
     export let skills: string|null = null;

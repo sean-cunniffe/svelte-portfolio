@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte/internal";
     import Navigation from "./navigation.svelte";
-    import type { PageData } from "./$types";
+    import type { PageData } from "../../routes/$types";
     export let data: PageData;
 
     onMount(async () => {

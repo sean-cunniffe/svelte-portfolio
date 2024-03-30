@@ -1,8 +1,8 @@
 <script lang="ts">
 
     import { fly } from "svelte/transition";
-    import GithubButton from "./githubButton.svelte"
-    import type { PageData } from "./$types";
+    import GithubButton from "../_common/githubButton.svelte"
+    import type { PageData } from "../../routes/$types";
     import { onMount } from "svelte";
     export let visible = false;
     export let data: PageData;
