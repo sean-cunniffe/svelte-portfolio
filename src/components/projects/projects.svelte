@@ -37,6 +37,4 @@
 </div>
 
 <style>
-    #projects-wrapper {
-    }
 </style>

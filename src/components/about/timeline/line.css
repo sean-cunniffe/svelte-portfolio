@@ -3,7 +3,7 @@
 }
 
 .line-width {
-    border-width: 0.125rem
+    border-width: 0.125rem;
 }
 
 .circle-width {
@@ -20,9 +20,8 @@
     background-color: var(--line-color);
 }
 
-/* TODO may remove this when theres content in the card body */
-.card-height {
-    height: 5rem;
+.card-color {
+    background-color: #28292f;
 }
 
 .line-wrapper-width {

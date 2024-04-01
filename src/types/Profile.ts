@@ -16,6 +16,7 @@ export interface TimeLinePeriod {
     position: string
     establishment: string
     description: string
+    imgURL: string
 }
 
 export interface DatabaseData {
