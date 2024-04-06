@@ -6,8 +6,7 @@
 </script>
 
 <div
-    id="timeline"
-    class="flex flex-col h-full grow relative md:-left-0 -left-4"
+    id="timeline" class="md:static relative -left-2"
 >
     <!--header-->
     <Lineend isStart={true} />

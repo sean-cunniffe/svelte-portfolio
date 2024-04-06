@@ -3,7 +3,6 @@
 
 
     import ProjectCard from "./project_card.svelte";
-    export let visible = false;
     export let data: PageServerData;
     let delay = 0;
     interface Project {
@@ -30,7 +29,6 @@
                 link={project.link}
                 delay={(delay += 300)}
                 repoLink={project.repoLink}
-                {visible}
             />
         {/each}
     </div>

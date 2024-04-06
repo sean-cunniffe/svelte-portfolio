@@ -5,7 +5,7 @@
 <div class="w-100 h-20">
     <!-- line wrapper -->
     <div
-        class="w-10 h-full flex flex-col {isStart
+        class="w-10 h-full flex flex-col line-wrapper-width {isStart
             ? 'justify-end'
             : ''}"
     >

@@ -32,14 +32,14 @@
 
 <div
     id="home-container"
-    class="h-150-screen flex flex-col justify-center w-full overflow-hidden"
+    class="h-150-screen flex flex-col justify-center w-full"
 >
     <div
         id="home-content"
         class="mb-auto h-screen flex flex-col justify-center"
     >
         <div
-            class="flex flex-col-reverse lg:flex-row justify-center overflow-hidden mx-auto lg:backdrop-blur-sm lg:border-opacity-20"
+            class="flex flex-col-reverse lg:flex-row justify-center  mx-auto lg:backdrop-blur-sm lg:border-opacity-20"
         >
             <div
                 id="slide-container"
