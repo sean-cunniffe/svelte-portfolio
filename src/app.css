@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     height: auto;
+    background-color: var(--bg-main);
 }
 
 :root {

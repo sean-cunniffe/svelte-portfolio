@@ -1,0 +1,30 @@
+:root {
+    --line-color: white;
+}
+
+.line-width {
+    border-width: 0.125rem;
+}
+
+.circle-width {
+    height: 0.625rem;
+    width: 0.625rem;
+}
+
+.line-color {
+    border-color: var(--line-color);
+}
+
+.spacer {
+    min-width: 0.5rem;
+    width: 0.5rem;
+    background-color: var(--line-color);
+}
+
+.card-color {
+    background-color: #28292f;
+}
+
+.line-wrapper-width {
+    min-width: 3rem;
+}

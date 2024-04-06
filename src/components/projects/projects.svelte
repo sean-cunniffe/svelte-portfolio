@@ -3,7 +3,6 @@
 
 
     import ProjectCard from "./project_card.svelte";
-    export let visible = false;
     export let data: PageServerData;
     let delay = 0;
     interface Project {
@@ -28,23 +27,11 @@
                 skills={project.toolsAndSkills}
                 imageURL={project.image}
                 link={project.link}
-                delay={(delay += 300)}
                 repoLink={project.repoLink}
-                {visible}
             />
         {/each}
     </div>
 </div>
 
 <style>
-    #projects-wrapper {
-        width: 100%;
-        min-height: 100vh;
-        background-image: linear-gradient(gray, white),
-            url("/background.svg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: repeat;
-        background-blend-mode: saturation;
-    }
 </style>

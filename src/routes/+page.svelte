@@ -52,10 +52,10 @@
     <title>Sean Cunniffe Web Portfolio</title>
 	<meta name="description" content="Explore the professional portfolio of Sean Cunniffe, a dedicated Backend Software Engineer. #SoftwareEngineer #BackendDevelopment #Portfolio">
 </svelte:head>
-<div id="parent">
+<div id="parent" class="relative">
 	<Home {data} />
-	<About {data} visible={aboutAnimation} />
-	<Projects {data} visible={projectAnimation} />
+	<About {data} />
+	<Projects {data} />
 </div>
 
 <style global lang="postcss">
