@@ -55,7 +55,7 @@
 <div id="parent" class="relative">
 	<Home {data} />
 	<About {data} />
-	<Projects {data} visible={projectAnimation} />
+	<Projects {data} />
 </div>
 
 <style global lang="postcss">

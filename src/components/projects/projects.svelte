@@ -27,7 +27,6 @@
                 skills={project.toolsAndSkills}
                 imageURL={project.image}
                 link={project.link}
-                delay={(delay += 300)}
                 repoLink={project.repoLink}
             />
         {/each}
