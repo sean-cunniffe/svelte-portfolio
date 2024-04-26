@@ -13,11 +13,11 @@ const firebaseConfig: FirebaseOptions = {
     measurementId: process.env.FIREBASE_MEASUREMENTID,
 }
 
-const path = process.env.FIREBASE_DATA_PATH;
+const path = process.env.FIREBASE_DATA_PATH
 
 async function getFirebaseData(): Promise<DataSnapshot> {
-    if(path == undefined) {
-        throw new Error("FIREBASE_DATA_PATH not defined");
+    if (path == undefined) {
+        throw new Error('FIREBASE_DATA_PATH not defined')
     }
     const app = initializeApp(firebaseConfig)
     const database = getDatabase(app)
@@ -25,7 +25,7 @@ async function getFirebaseData(): Promise<DataSnapshot> {
     return get(child(dbRef, path))
 }
 
-export const load = (async ({ }) => {
+export const load = (async ({}) => {
     let data = (await getFirebaseData()).val()
     return data
 }) satisfies PageServerLoad
