@@ -18,21 +18,3 @@ export interface TimeLinePeriod {
     description: string
     imgURL: string
 }
-
-export interface DatabaseData {
-    public: {
-        greeting: string[]
-        profile: {
-            bio: string[]
-            cv: string
-            timeline: TimeLinePeriod[]
-            email: string
-            firstName: string
-            github: string
-            lastName: string
-            linkedin: string
-            profilePic: string
-        }
-        project: Project[]
-    }
-}

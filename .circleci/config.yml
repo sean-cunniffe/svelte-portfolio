@@ -20,7 +20,7 @@ jobs:
                       echo $FIREBASE_DEPLOYMENT > firebase.json
             - run:
                   name: deploy
-                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run 'deploy:prod'
+                  command: FIREBASE_DATA_PATH="/public" GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run 'deploy:prod'
     dev-deploy:
         docker:
             - image: cimg/node:21.4.0
@@ -39,7 +39,7 @@ jobs:
                       echo $FIREBASE_DEPLOYMENT > firebase.json
             - run:
                   name: deploy
-                  command: GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run 'deploy:dev'
+                  command: FIREBASE_DATA_PATH="/test" GOOGLE_APPLICATION_CREDENTIALS=credentials.json npm run 'deploy:dev'
 
 workflows:
     main-workflow:
