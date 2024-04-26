@@ -19,6 +19,7 @@ async function getFirebaseData(): Promise<DataSnapshot> {
     if (path == undefined) {
         throw new Error('FIREBASE_DATA_PATH not defined')
     }
+    console.log('using path ', path, ' to build')
     const app = initializeApp(firebaseConfig)
     const database = getDatabase(app)
     const dbRef = ref(database)
